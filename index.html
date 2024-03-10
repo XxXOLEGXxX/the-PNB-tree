@@ -40,10 +40,10 @@
 
 <body onload="load()" onmousemove="updateMouse(event)">
 	<div id="app">
-		<audio id = "idAudio1" loop autoplay>
+		<audio id = "idAudio1" loop>
 			<source src="music/mario.ogg" type="audio/ogg">
 		</audio>
-		<audio id = "idAudio2" loop autoplay>
+		<audio id = "idAudio2" loop>
 			<source src="music/death.ogg" type="audio/ogg">
 		</audio>
 		<canvas id="treeCanvas" class="canvas" v-if="!(tmp.gameEnded && !player.keepGoing)"></canvas>

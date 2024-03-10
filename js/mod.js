@@ -23,7 +23,8 @@ let changelog = `<h1>Changelog:</h1><br>
 		<h5>- Impatience tab.<br>
         - Two more challenges<br>
         - Cool upgrades</h5>
-        - Polished the game itself.<br><br>
+        - Polished the game itself.<br>
+        - Tooltips now contain more information about layers<br><br>
 	<h3>v0.1: Literally plot</h3><br>
 		- Added Shenanigans Tree's early game, partially.<br>
 		- Added PNB layer.<br>
