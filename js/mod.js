@@ -13,11 +13,17 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1",
-	name: "Literally plot",
+	num: "0.2",
+	name: "Multitree Confirmed...?",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+	<h3>v0.2: Multitree Confirmed...?</h3><br>
+		- Finished adding Shenanigans Tree's early game content, which includes:
+		<h5>- Impatience tab.<br>
+        - Two more challenges<br>
+        - Cool upgrades</h5>
+        - Polished the game itself.<br><br>
 	<h3>v0.1: Literally plot</h3><br>
 		- Added Shenanigans Tree's early game, partially.<br>
 		- Added PNB layer.<br>
@@ -38,6 +44,26 @@ function canGenPoints(){
 	return true
 }
 
+function boughtUpgrades(id,rows,cols){
+    let total = new Decimal(0)
+    for(let i=1;i<rows+1;i++){
+        for(let v=1;v<cols+1;v++){
+            if(player[id].upgrades.includes(i*10+v)) total=total.add(1)
+        }
+    }
+    return total
+}
+
+function impatienceUpgrades(){
+    let bozo = new Decimal(0)
+        for(let i=1;i<3;i++){
+            for(let v=1;v<5;v++){
+                if(player.st.upgrades.includes("impatience"+(i*10+v))) bozo = bozo.add(1)
+            }
+        }
+    return bozo
+}
+
 // Calculate points/sec!
 function getPointGen() {
 	if(!canGenPoints())
@@ -46,6 +72,9 @@ function getPointGen() {
 	let gain = new Decimal(hasUpgrade("idk", 11)?1:0)
     if(hasUpgrade("idk",12)) gain = gain.add(1)
     if(hasUpgrade("idk",13)) gain = gain.add(1)
+    if(hasUpgrade("idk",21)) gain = gain.add(4)
+    if(hasUpgrade("idk",22)) gain = gain.add(4)
+    if(hasUpgrade("idk",23)) gain = gain.add(4)
     if(hasUpgrade("st",11)) gain = gain.mul(upgradeEffect("st",11))
     if(hasUpgrade("st",23)) gain = gain.mul(tmp.st.upgrades[23].effect)
     if(hasAchievement("a",13)) gain = gain.mul(player.st.points.add(1).root(10).sub(1).add(player.st.plots.add(1).root(10).sub(1)).add(1))
